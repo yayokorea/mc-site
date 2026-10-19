@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yayo Minecraft Server</title>
+<meta name="description" content="Yayo Launcher로 접속하는 모드 마인크래프트 서버">
+<meta property="og:title" content="Yayo Minecraft Server">
+<meta property="og:description" content="Yayo Launcher로 접속하는 모드 마인크래프트 서버">
+<meta property="og:image" content="https://mc.yayokorea.net/assets/logo.png">
+<link rel="icon" href="assets/logo.png">
+<style>
+@font-face{font-family:'Pretendard Variable';src:url(assets/PretendardVariable.woff2) format('woff2-variations');font-weight:45 920;font-display:swap}
+:root{
+  --font:'Pretendard Variable',Pretendard,system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --mint:#acf4e6;--teal:#5cd8d0;--gold:#fad174;--purple:#8465cf;--ink:#0e0212;
+  --bg:#f7f0e5;--s1:#fbf7ef;--s3:#efe5d3;--text:#3a2f33;--muted:#5e5256;
+  --primary-text:#0a6b75;
+  --edge:3px;--shadow:6px 6px 0 var(--text);--shadow-sm:0 4px 0 var(--text);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);line-height:1.6;background:var(--bg) url(assets/bg.png) 0 0/96px 96px;image-rendering:pixelated;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;background:rgba(247,240,229,.9);z-index:-1}
+a{color:var(--primary-text);font-weight:700}
+img{image-rendering:pixelated}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav b{font-weight:800;font-size:18px;display:flex;gap:10px;align-items:center}
+nav img{width:32px;height:32px;image-rendering:auto}
+nav a{text-decoration:none;margin-left:20px;color:var(--text)}
+nav a:hover{color:var(--primary-text)}
+.hero{text-align:center;padding:48px 0 64px}
+.hero img{width:128px;height:128px;image-rendering:auto;filter:drop-shadow(6px 6px 0 rgba(58,47,51,.4));animation:bob 3s steps(6) infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+h1{font-size:clamp(36px,7vw,64px);font-weight:900;letter-spacing:-.02em;margin:20px 0 8px;line-height:1.15}
+h1 span{background:var(--teal);color:var(--ink);padding:0 .15em;box-shadow:4px 4px 0 var(--text)}
+.hero p{margin-top:12px;color:var(--muted);font-size:18px;max-width:520px;margin-left:auto;margin-right:auto;margin-bottom:32px}
+.btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font:800 17px var(--font);color:var(--text);background:var(--s3);border:var(--edge) solid var(--text);box-shadow:var(--shadow-sm);text-decoration:none;cursor:pointer;transition:background .12s,transform .08s,box-shadow .08s}
+.btn:hover{background:var(--gold);color:var(--ink)}
+.btn:active{transform:translateY(4px);box-shadow:none}
+.btn.primary{background:var(--teal);color:var(--ink);font-size:19px;padding:16px 36px}
+.btn.primary:hover{background:var(--mint)}
+.sub{margin-top:14px;font-size:14px;color:var(--muted)}
+.ip{margin:28px auto 0;display:inline-flex;align-items:center;gap:12px;padding:8px 8px 8px 18px;background:var(--gold);color:var(--ink);border:var(--edge) solid var(--text);box-shadow:var(--shadow-sm);font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700}
+.ip button{font:700 14px var(--font);padding:6px 14px;background:var(--s1);border:2px solid var(--text);cursor:pointer;color:var(--ink)}
+.ip button:active{transform:translateY(2px)}
+h2{font-size:28px;font-weight:800;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+h2::before{content:"";width:14px;height:14px;background:var(--gold);border:var(--edge) solid var(--text);box-shadow:2px 2px 0 var(--text)}
+section{padding:40px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.card{background:var(--s1);border:var(--edge) solid var(--text);box-shadow:var(--shadow);padding:24px}
+.card .ic{width:48px;height:48px;display:grid;place-items:center;font-size:24px;border:var(--edge) solid var(--text);margin-bottom:14px}
+.card:nth-child(1) .ic{background:var(--teal)}.card:nth-child(2) .ic{background:var(--gold)}.card:nth-child(3) .ic{background:var(--purple)}
+.card h3{font-weight:800;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15px}
+ol{padding:0;list-style:none;counter-reset:s;display:grid;gap:16px}
+ol li{counter-increment:s;display:flex;gap:16px;align-items:flex-start;background:var(--s3);border:var(--edge) solid var(--text);box-shadow:var(--shadow-sm);padding:16px 20px}
+ol li::before{content:counter(s);flex:none;width:32px;height:32px;display:grid;place-items:center;background:var(--teal);border:2px solid var(--text);font-weight:900;color:var(--ink)}
+.dl{display:flex;gap:12px;flex-wrap:wrap}
+footer{padding:48px 0;text-align:center;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <b><img src="assets/logo.png" alt="">Yayo MC</b>
+    <div><a href="#features">소개</a><a href="#join">접속 방법</a><a href="#download">다운로드</a></div>
+  </nav>
+
+  <header class="hero">
+    <img src="assets/logo.png" alt="Yayo">
+    <h1>Yayo <span>Minecraft</span> Server</h1>
+    <p>전용 런처 하나로 모드 설치부터 접속까지. 같이 놀러 와요!</p>
+    <div class="btns">
+      <a class="btn primary" id="dl-main" href="https://github.com/yayokorea/YayoLauncher/releases/latest">⬇ 런처 다운로드</a>
+      <a class="btn" href="https://github.com/yayokorea/YayoLauncher" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="sub" id="dl-sub">최신 버전을 확인하는 중…</div>
+    <div class="ip"><span>play.yayokorea.net</span><button id="copy">복사</button></div>
+  </header>
+
+  <section id="features">
+    <h2>서버 소개</h2>
+    <div class="grid">
+      <div class="card"><div class="ic">⛏</div><h3>모드 서버</h3><p>다양한 모드가 적용된 마인크래프트 서버예요. 런처가 필요한 모드를 자동으로 맞춰 줍니다.</p></div>
+      <div class="card"><div class="ic">🚀</div><h3>원클릭 실행</h3><p>Yayo Launcher에서 로그인 후 PLAY 버튼만 누르면 끝. 업데이트도 자동입니다.</p></div>
+      <div class="card"><div class="ic">👥</div><h3>함께 즐기기</h3><p>친구들과 건축하고, 탐험하고, 모험하세요. 누구나 환영합니다.</p></div>
+    </div>
+  </section>
+
+  <section id="join">
+    <h2>접속 방법</h2>
+    <ol>
+      <li>아래에서 운영체제에 맞는 Yayo Launcher를 다운로드하고 설치해요.</li>
+      <li>마인크래프트 계정으로 로그인해요.</li>
+      <li>PLAY 버튼을 누르면 모드 설치와 서버 접속까지 알아서 진행돼요.</li>
+    </ol>
+  </section>
+
+  <section id="download">
+    <h2>다운로드 <small id="ver" style="font-size:16px;color:var(--muted)"></small></h2>
+    <div class="dl" id="dl-list">
+      <a class="btn" href="https://github.com/yayokorea/YayoLauncher/releases/latest">모든 릴리즈 보기</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Yayo · <a href="https://github.com/yayokorea/YayoLauncher">YayoLauncher</a> · <a href="https://yayokorea.net">yayokorea.net</a><br>Not affiliated with Mojang or Microsoft.</footer>
+</div>
+
+<script>
+const REPO='yayokorea/YayoLauncher';
+document.getElementById('copy').onclick=e=>{navigator.clipboard.writeText('play.yayokorea.net');e.target.textContent='복사됨!';setTimeout(()=>e.target.textContent='복사',1500)};
+const ua=navigator.userAgent;
+const os=/Windows/.test(ua)?'win':/Mac/.test(ua)?'mac':'linux';
+const labels=[['win',/Setup.*\.exe$/,'Windows (.exe)'],['mac',/\.dmg$/,'macOS (.dmg)'],['linux',/\.AppImage$/,'Linux (.AppImage)'],['linux',/\.deb$/,'Linux (.deb)'],['linux',/\.rpm$/,'Linux (.rpm)']];
+fetch(`https://api.github.com/repos/${REPO}/releases/latest`).then(r=>r.json()).then(rel=>{
+  const list=document.getElementById('dl-list');list.innerHTML='';
+  document.getElementById('ver').textContent=rel.tag_name;
+  let main;
+  for(const [o,re,label] of labels){
+    const a=rel.assets.find(x=>re.test(x.name));if(!a)continue;
+    const el=Object.assign(document.createElement('a'),{className:'btn',href:a.browser_download_url,textContent:'⬇ '+label});
+    list.append(el);
+    if(o===os&&!main)main=[a,label];
+  }
+  if(main){const b=document.getElementById('dl-main');b.href=main[0].browser_download_url;b.textContent='⬇ 런처 다운로드 · '+main[1].split(' ')[0];}
+  document.getElementById('dl-sub').textContent='최신 버전 '+rel.tag_name;
+}).catch(()=>{document.getElementById('dl-sub').textContent=''});
+</script>
+</body>
+</html>
